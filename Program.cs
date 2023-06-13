@@ -2,19 +2,20 @@
 // длина которых меньше, либо равна 3 символам.
 int n = GetPositivUserNumber("Введите количество элементов массива: ", "Ошибка ввода");
 string[] array = GetArrayUser(n);
+PrintArray(array);
 
-Console.WriteLine(String.Join("|", array));
-string [] result=GetResult(array);
-Console.WriteLine(String.Join("|", result));
+string[] result = GetResult(array);
+PrintArray(result);
 
 string[] GetResult(string[] arr)
-{   string[] rez=CreateNewArray(array);
-    int j=0;
+{
+    string[] rez = CreateNewArray(array);
+    int j = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if(arr[i].Length <=3)
-            rez[j]=arr[i];
-            j++;
+        if (arr[i].Length <= 3)
+            rez[j] = arr[i];
+        j++;
     }
     return rez;
 }
@@ -24,7 +25,7 @@ string[] CreateNewArray(string[] arr)
     int count = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i].Length  <= 3)
+        if (arr[i].Length <= 3)
             count++;
     }
     string[] rez = new string[n];
@@ -40,6 +41,11 @@ string[] GetArrayUser(int n)
         arr[i] = Console.ReadLine() ?? "";
     }
     return arr;
+}
+
+void PrintArray(string[] arr)
+{
+    Console.WriteLine(String.Join("| ", arr));
 }
 
 int GetPositivUserNumber(string message, string errorMessage)
