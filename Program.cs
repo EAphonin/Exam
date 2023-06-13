@@ -1,6 +1,4 @@
-﻿//  Написать программу, которая из имеющегося массива строк формирует новый массив из строк,
-// длина которых меньше, либо равна 3 символам.
-int n = GetPositivUserNumber("Введите количество элементов массива: ", "Ошибка ввода");
+﻿int n = GetPositivUserNumber("Введите количество элементов массива: ", "Ошибка ввода");
 string[] array = GetArrayUser(n);
 PrintArray(array);
 
@@ -14,8 +12,10 @@ string[] GetResult(string[] arr)
     for (int i = 0; i < arr.Length; i++)
     {
         if (arr[i].Length <= 3)
+        {
             rez[j] = arr[i];
-        j++;
+            j++;
+        }
     }
     return rez;
 }
@@ -28,7 +28,7 @@ string[] CreateNewArray(string[] arr)
         if (arr[i].Length <= 3)
             count++;
     }
-    string[] rez = new string[n];
+    string[] rez = new string[count];
     return rez;
 }
 
@@ -45,7 +45,8 @@ string[] GetArrayUser(int n)
 
 void PrintArray(string[] arr)
 {
-    Console.WriteLine(String.Join("| ", arr));
+    Console.WriteLine(String.Join(" ", arr));
+    Console.WriteLine();
 }
 
 int GetPositivUserNumber(string message, string errorMessage)
